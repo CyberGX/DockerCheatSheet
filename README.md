@@ -15,8 +15,14 @@ docker run -itd $ImageName:$Version $Command -b
 --cpuset-cpus="1,3" : container can use only cpu #1 and #3
 --env VAR1 : set enviroment variable VAR1 in container = enviroment variable in docker system
 --name : set name for container
+--storage-opt size=120G : set docker partition size
 $Command -b : it's optional and run specified command in binary mode
 ```
+Example :
+```bash
+docker run -itd --name "MyCentOS" centos:lastest /usr/bin/top -b
+```
+
 
 ### Create stopped container
 ```bash
@@ -46,6 +52,9 @@ docker start $ContainerID
 docker stop $ContainerID
 docker attach $ContainerID
 ```
+```
+Tip : to deattach from container and prevent container status to down you must use CTRL+P+Q
+```
 
 ### Remove containers
 ```bash
@@ -68,4 +77,3 @@ docker cp $FilePath $ContainerID|$ContainerName:/root
 ```bash
 docker exec -it $ContainerID|$ContainerName /bin/bash
 ```
-
