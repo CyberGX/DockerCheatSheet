@@ -13,6 +13,8 @@ docker run -itd $ImageName:$Version
 -t : tty
 -d : deattach - run in background
 --cpuset-cpus="1,3" : container can use only cpu #1 and #3
+--env VAR1 : set enviroment variable VAR1 in container = enviroment variable in docker system
+--name : set name for container
 ```
 
 ### 
@@ -56,7 +58,7 @@ docker cp $FilePath $ContainerID|$ContainerName:/root
 -a : copy file with all attributes
 ```
 
-### Docker Attach :
+### Docker execute command :
 ```bash
 docker exec -it $ContainerID|$ContainerName /bin/bash
 ```
