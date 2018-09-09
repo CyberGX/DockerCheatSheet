@@ -1,4 +1,8 @@
 
+This repo contains collection of docker commands, It was just created and will be actively updated. 
+
+Please fork and submit your pull-requests, if you would like to contribute. Thanks!
+
 ### Get Docker status :
 ```bash
 docker info 
@@ -11,9 +15,9 @@ docker run -itd $ImageName:$Version $Command -b
 ```
 -i : interactive
 -t : tty
--d : deattach - run in background
+-d : deattach - start container in background
 --cpuset-cpus="1,3" : container can use only cpu #1 and #3
---env VAR1 : set enviroment variable VAR1 in container = enviroment variable in docker system
+--env VAR1 : set enviroment variable VAR1 in container equal to enviroment variable in docker system
 --name : set name for container
 --storage-opt size=120G : set docker partition size
 $Command -b : it's optional and run specified command in binary mode
