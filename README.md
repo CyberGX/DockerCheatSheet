@@ -5,12 +5,12 @@ Please fork and submit your pull-requests, if you would like to contribute. Than
 
 ### Get Docker status :
 ```bash
-docker info 
+$ docker info 
 ```
 
 ### Download, Install, Run target image : 
 ```bash
-docker run -itd $ImageName:$Version $Command -b
+$ docker run -itd $ImageName:$Version $Command -b
 ```
 ```
 -i : interactive
@@ -20,28 +20,29 @@ docker run -itd $ImageName:$Version $Command -b
 --env VAR1 : set enviroment variable VAR1 in container equal to enviroment variable in docker system
 --name : set name for container
 --storage-opt size=120G : set docker partition size
+--shm-size 128M : set container shm to 128mb
 $Command -b : it's optional and run specified command in binary mode
 ```
 Example :
 ```bash
-docker run -itd --name "MyCentOS" centos:lastest /usr/bin/top -b
+$ docker run -itd --name "MyCentOS" centos:lastest /usr/bin/top -b
 ```
 
 
 ### Create stopped container
 ```bash
-docker create -it centos:lastest /bin/bash
-docker start -ai $CreatedContainerID
+$ docker create -it centos:lastest /bin/bash
+$ docker start -ai $CreatedContainerID
 ```
 
 ### Get Docker image list :
 ```bash
-docker image ls | docker images
+$ docker image ls | docker images
 ```
 
 ### List containers :
 ```bash
-docker ps -as
+$ docker ps -as
 ```
 ```
 -a : show All Containers
@@ -52,9 +53,9 @@ docker ps -as
 
 ### Change container states
 ```bash
-docker start $ContainerID
-docker stop $ContainerID
-docker attach $ContainerID
+$ docker start $ContainerID
+$ docker stop $ContainerID
+$ docker attach $ContainerID
 ```
 ```
 Tip : to deattach from container and prevent container status to down you must use CTRL+P+Q
@@ -62,8 +63,8 @@ Tip : to deattach from container and prevent container status to down you must u
 
 ### Remove containers
 ```bash
-docker rm -f $ContainerID|$ContainerName
-docker rm -f $(docker ps -aq) # Remove All Containers
+$ docker rm -f $ContainerID|$ContainerName
+$ docker rm -f $(docker ps -aq) # Remove All Containers
 ```
 ```
 -f : Force Up Container to remove
@@ -71,7 +72,7 @@ docker rm -f $(docker ps -aq) # Remove All Containers
 
 ### Copy file to container :
 ```bash
-docker cp $FilePath $ContainerID|$ContainerName:/root
+$ docker cp $FilePath $ContainerID|$ContainerName:/root
 ```
 ```
 -a : copy file with all attributes
@@ -79,5 +80,5 @@ docker cp $FilePath $ContainerID|$ContainerName:/root
 
 ### Docker execute command :
 ```bash
-docker exec -it $ContainerID|$ContainerName /bin/bash
+$ docker exec -it $ContainerID|$ContainerName /bin/bash
 ```
