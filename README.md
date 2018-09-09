@@ -6,7 +6,7 @@ docker info
 
 ### Download, Install, Run target image : 
 ```bash
-docker run -itd $ImageName:$Version
+docker run -itd $ImageName:$Version $Command -b
 ```
 ```
 -i : interactive
@@ -15,10 +15,16 @@ docker run -itd $ImageName:$Version
 --cpuset-cpus="1,3" : container can use only cpu #1 and #3
 --env VAR1 : set enviroment variable VAR1 in container = enviroment variable in docker system
 --name : set name for container
+$Command -b : it's optional and run specified command in binary mode
 ```
 
-### 
-Get Docker image list :
+### Create stopped container
+```bash
+docker create -it centos:lastest /bin/bash
+docker start -ai $CreatedContainerID
+```
+
+### Get Docker image list :
 ```bash
 docker image ls | docker images
 ```
