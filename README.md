@@ -12,6 +12,7 @@ docker run -itd $ImageName:$Version
 -i : interactive
 -t : tty
 -d : deattach - run in background
+--cpuset-cpus="1,3" : container can use only cpu #1 and #3
 ```
 
 ### 
@@ -27,6 +28,8 @@ docker ps -as
 ```
 -a : show All Containers
 -s : show Containers size
+-q : show only ContainerID
+-f status=exited : show only container with exited status
 ```
 
 ### Change container states
