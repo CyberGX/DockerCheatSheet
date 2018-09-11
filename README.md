@@ -15,7 +15,7 @@ $ docker run -itd $ImageName:$Version $Command -b
 ```
 -i : interactive
 -t : tty
--d : deattach - start container in background
+-d : detached - start container in background
 --cpuset-cpus="1,3" : container can use only cpu #1 and #3
 --env VAR1 : set enviroment variable VAR1 in container equal to enviroment variable in docker system
 --name : set name for container
@@ -35,9 +35,12 @@ $ docker create -it centos:lastest /bin/bash
 $ docker start -ai $CreatedContainerID
 ```
 
-### Get Docker image list :
+### Get Docker image :
 ```bash
+# List Images
 $ docker image ls | docker images
+# Remove Images
+$ docker rmi $(docker images -q)
 ```
 
 ### List containers :
@@ -48,6 +51,7 @@ $ docker ps -as
 -a : show All Containers
 -s : show Containers size
 -q : show only ContainerID
+-n 3 : just show 3 of Containers
 -f status=exited : show only container with exited status
 ```
 
