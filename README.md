@@ -86,3 +86,8 @@ $ docker cp $FilePath $ContainerID|$ContainerName:/root
 ```bash
 $ docker exec -it $ContainerID|$ContainerName /bin/bash
 ```
+
+### Search images from DockerHub
+```bash
+$ docker search $Name
+```
