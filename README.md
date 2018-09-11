@@ -29,23 +29,28 @@ $ docker run -itd --name "MyCentOS" centos:lastest /usr/bin/top -b
 ```
 
 
-### Create stopped container
+### Create stopped container :
 ```bash
 $ docker create -it centos:lastest /bin/bash
 $ docker start -ai $CreatedContainerID
 ```
 
-### Images
+### Images :
 ```bash
 # List local Images
-$ docker image ls / docker images -a
+    $ docker image ls / docker images -a
 # Remove Images
-$ docker rmi ($ImageID / $ImageName)
-$ docker rmi $(docker images -q) # Remove All Images
+    $ docker rmi ($ImageID / $ImageName)
+    $ docker rmi $(docker images -q) # Remove All Images
 # Search DockerHub Images
-$ docker search $Name
+    $ docker search $Name
 # Download Images
-$ docker pull $ImageName
+    $ docker pull $ImageName
+```
+
+### Create new image :
+```bash
+$ docker commit ($ContainerID/$ContainerName) $NewImageName
 ```
 
 ### List containers :
@@ -90,4 +95,10 @@ $ docker cp $FilePath ($ContainerID / $ContainerName):/root
 ### Docker execute command :
 ```bash
 $ docker exec -it ($ContainerID / $ContainerName) /bin/bash
+```
+
+### Docker Inspect :
+Show information about container or images by id
+```bash
+$ docker inspect ( $ContainerID / $ImageID )
 ```
