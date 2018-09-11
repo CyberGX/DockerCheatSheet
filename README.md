@@ -55,6 +55,12 @@ $ docker commit ($ContainerID/$ContainerName) $NewImageName
 
 # Export docker image
 $ docker save -o $FileName.tar.gz ($ImageID / $ImageName:$ImageTag)
+
+# Import docker image
+$ docker load -i $FileName.tar.gz
+
+# Add tag to loaded image
+$ docker tag $ImageID $ImageName:$ImageTag
 ```
 
 ### List containers :
