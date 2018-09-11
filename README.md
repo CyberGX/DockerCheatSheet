@@ -38,14 +38,17 @@ $ docker start -ai $CreatedContainerID
 ### Images :
 ```bash
 # List local Images
-    $ docker image ls / docker images -a
+$ docker image ls / docker images -a
+
 # Remove Images
-    $ docker rmi ($ImageID / $ImageName)
-    $ docker rmi $(docker images -q) # Remove All Images
+$ docker rmi ($ImageID / $ImageName)
+$ docker rmi $(docker images -q) # Remove All Images
+
 # Search DockerHub Images
-    $ docker search $Name
+$ docker search $Name
+
 # Download Images
-    $ docker pull $ImageName
+$ docker pull $ImageName
 ```
 
 ### Create new image :
