@@ -35,12 +35,15 @@ $ docker create -it centos:lastest /bin/bash
 $ docker start -ai $CreatedContainerID
 ```
 
-### Get Docker image :
+### Images
 ```bash
-# List Images
-$ docker image ls | docker images
+# List local Images
+$ docker image ls / docker images -a
 # Remove Images
+$ docker rmi ($ImageID / $ImageName)
 $ docker rmi $(docker images -q)
+# Search DockerHub Images
+$ docker search $Name
 # Download Images
 $ docker pull $ImageName
 ```
@@ -69,7 +72,7 @@ Tip : to deattach from container and prevent container status to down you must u
 
 ### Remove containers
 ```bash
-$ docker rm -f $ContainerID|$ContainerName
+$ docker rm -f ($ContainerID / $ContainerName)
 $ docker rm -f $(docker ps -aq) # Remove All Containers
 ```
 ```
@@ -78,7 +81,7 @@ $ docker rm -f $(docker ps -aq) # Remove All Containers
 
 ### Copy file to container :
 ```bash
-$ docker cp $FilePath $ContainerID|$ContainerName:/root
+$ docker cp $FilePath ($ContainerID / $ContainerName):/root
 ```
 ```
 -a : copy file with all attributes
@@ -86,10 +89,5 @@ $ docker cp $FilePath $ContainerID|$ContainerName:/root
 
 ### Docker execute command :
 ```bash
-$ docker exec -it $ContainerID|$ContainerName /bin/bash
-```
-
-### Search images from DockerHub
-```bash
-$ docker search $Name
+$ docker exec -it ($ContainerID / $ContainerName) /bin/bash
 ```
