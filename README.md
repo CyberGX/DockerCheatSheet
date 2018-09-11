@@ -41,7 +41,7 @@ $ docker start -ai $CreatedContainerID
 $ docker image ls / docker images -a
 # Remove Images
 $ docker rmi ($ImageID / $ImageName)
-$ docker rmi $(docker images -q)
+$ docker rmi $(docker images -q) # Remove All Images
 # Search DockerHub Images
 $ docker search $Name
 # Download Images
