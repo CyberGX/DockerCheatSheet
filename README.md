@@ -8,7 +8,7 @@ Please fork and submit your pull-requests, if you would like to contribute. Than
 $ docker info 
 ```
 
-### Download, Install, Run target image : 
+### Download Image, Create Container, Start Container : 
 ```bash
 $ docker run -itd $ImageName:$Version $Command -b
 ```
@@ -41,6 +41,8 @@ $ docker start -ai $CreatedContainerID
 $ docker image ls | docker images
 # Remove Images
 $ docker rmi $(docker images -q)
+# Download Images
+$ docker pull $ImageName
 ```
 
 ### List containers :
