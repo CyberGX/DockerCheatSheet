@@ -45,6 +45,7 @@ $ docker start -ai $CreatedContainerID
 ```
 
 ### Images :
+
 ```bash
 # List local Images
 $ docker image ls / docker images -a
@@ -71,6 +72,11 @@ $ docker load -i $FileName.tar.gz
 # Add tag to loaded image
 $ docker tag $ImageID $ImageName:$ImageTag
 ```
+
+
+<div dir="rtl">
+نکته : در داکر در صورتی که محتویات یک کانتینر تغییراتی اعمال می کنیم می بایست ایمیج مورد نظر را Commit کرده و در صورتی که تمایل داریم آن را به دستگاه دیگری انتقال دهیم با Save و Load از آن خروجی گرفته و آن را در داکر دستگاه دیگر لود می کنیم.
+</div>
 
 ### List containers :
 ```bash
