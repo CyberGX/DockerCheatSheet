@@ -49,11 +49,12 @@ $ docker search $Name
 
 # Download Images
 $ docker pull $ImageName
-```
 
-### Create new image :
-```bash
+# Create new image from changed image
 $ docker commit ($ContainerID/$ContainerName) $NewImageName
+
+# Export docker image
+$ docker save -o $FileName.tar.gz ($ImageID / $ImageName:$ImageTag)
 ```
 
 ### List containers :
@@ -68,7 +69,7 @@ $ docker ps -as
 -f status=exited : show only container with exited status
 ```
 
-### Change container states
+### Change container states :
 ```bash
 $ docker start $ContainerID
 $ docker stop $ContainerID
@@ -78,7 +79,7 @@ $ docker attach $ContainerID
 Tip : to deattach from container and prevent container status to down you must use CTRL+P+Q
 ```
 
-### Remove containers
+### Remove containers :
 ```bash
 $ docker rm -f ($ContainerID / $ContainerName)
 $ docker rm -f $(docker ps -aq) # Remove All Containers
