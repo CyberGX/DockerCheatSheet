@@ -10,14 +10,6 @@ $ docker info
 
 ### Download Image, Create Container, Start Container : 
 
-<div dir="rtl">
-Docker Run در اصل ترکیبی از ۳ دستور مختلف می باشد که ایمیج مورد نظر را دانلود و کانتینر آن را ساخته و آن را اجرا می کند.
-</div>
-
-- docker pull centos:latest
-- docker create -it --name "MyCentOS" centos:lastest /bin/bash
-- docker start /MyCent
-
 ```bash
 $ docker run -itd $ImageName:$Version $Command -b
 ```
@@ -36,7 +28,13 @@ Example :
 ```bash
 $ docker run -itd --name "MyCentOS" centos:lastest /usr/bin/top -b
 ```
+<div dir="rtl">
+Docker Run در اصل ترکیبی از ۳ دستور مختلف می باشد که ایمیج مورد نظر را دانلود و کانتینر آن را ساخته و آن را اجرا می کند.
+</div>
 
+- docker pull centos:latest
+- docker create -it --name "MyCentOS" centos:lastest /bin/bash
+- docker start /MyCent
 
 ### Create stopped container :
 ```bash
