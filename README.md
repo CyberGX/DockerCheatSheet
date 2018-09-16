@@ -18,7 +18,7 @@ $ docker run -itd $ImageName:$Version $Command -b
 -t : tty
 -d : detached - start container in background
 --cpuset-cpus="1,3" : container can use only cpu #1 and #3
---env VAR1 : set enviroment variable VAR1 in container equal to enviroment variable in docker system
+--env VAR1=Value1 / -e VAR1=Value1 : set enviroment variable VAR1 in container equal to enviroment variable in docker system
 --name : set name for container
 --storage-opt size=120G : set docker partition size
 --shm-size 128M : set container shm to 128mb
@@ -34,7 +34,7 @@ Docker Run در اصل ترکیبی از ۳ دستور مختلف می باشد 
 
 - docker pull centos:latest
 - docker create -it --name "MyCentOS" centos:lastest /bin/bash
-- docker start /MyCent
+- docker start /MyCentOS
 
 ### Create stopped container :
 ```bash
@@ -93,6 +93,8 @@ $ docker ps -as
 $ docker start $ContainerID
 $ docker stop $ContainerID
 $ docker attach $ContainerID
+$ docker pause $ContainerID 
+$ docker unpause $ContainerID 
 ```
 ```
 Tip : to deattach from container and prevent container status to down you must use CTRL+P+Q
