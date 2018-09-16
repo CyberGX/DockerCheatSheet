@@ -95,6 +95,7 @@ $ docker stop $ContainerID
 $ docker attach $ContainerID
 $ docker pause $ContainerID 
 $ docker unpause $ContainerID 
+$ docker kill $ContainerID 
 ```
 ```
 Tip : to deattach from container and prevent container status to down you must use CTRL+P+Q
@@ -117,9 +118,16 @@ $ docker cp $FilePath ($ContainerID / $ContainerName):/root
 -a : copy file with all attributes
 ```
 
-### Docker execute command :
+### Container extra commands :
 ```bash
+# Docker execute command
 $ docker exec -it ($ContainerID / $ContainerName) /bin/bash
+
+# Export Container
+$ docker export ($ContainerID / $ContainerName) MyContainer.tar
+
+# import Container
+$ docker import MyContainer.tar
 ```
 
 ### Docker Inspect :
