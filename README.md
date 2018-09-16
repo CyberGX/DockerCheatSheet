@@ -23,6 +23,7 @@ $ docker run -itd $ImageName:$Version $Command -b
 --storage-opt size=120G : set docker partition size
 --shm-size 128M : set container shm to 128mb
 $Command -b : it's optional and run specified command in binary mode
+-v vol1:/opt:ro : Mount vol1 to /opt read-only
 ```
 Example :
 ```bash
@@ -128,6 +129,12 @@ $ docker export ($ContainerID / $ContainerName) MyContainer.tar
 
 # import Container
 $ docker import MyContainer.tar
+```
+
+### Volumes :
+```bash
+# Real volume location in host is /var/lib/docker/volumes/vol1/
+$ docker volume create --name vol1
 ```
 
 ### Docker Inspect :
