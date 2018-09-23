@@ -24,6 +24,8 @@ $ docker run -itd $ImageName:$Version $Command -b
 --shm-size 128M : set container shm to 128mb
 $Command -b : it's optional and run specified command in binary mode
 -v vol1:/opt:ro : Mount vol1 to /opt read-only
+-p PublicPort:PrivatePort : -p 3000:3306
+-P : Connect random port on host to container nedded ports
 ```
 Example :
 ```bash
@@ -129,6 +131,14 @@ $ docker export ($ContainerID / $ContainerName) MyContainer.tar
 
 # import Container
 $ docker import MyContainer.tar
+```
+
+### Container Network : 
+```bash
+$ docker port ($ContainerID / $ContainerName)
+$ docker network ls
+$ docker network create --subnet 192.168.20.0/24 mynet
+$ docker network connect --ip 192.168.20.100 mynet ($ContainerID / $ContainerName)
 ```
 
 ### Volumes :
