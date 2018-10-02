@@ -139,6 +139,8 @@ $ docker port ($ContainerID / $ContainerName)
 $ docker network ls
 $ docker network create --subnet 192.168.20.0/24 mynet
 $ docker network connect --ip 192.168.20.100 mynet ($ContainerID / $ContainerName)
+$ docker network disconnect mynet ($ContainerID / $ContainerName)
+$ docker network rm mynet
 ```
 
 ### Volumes :
@@ -151,4 +153,36 @@ $ docker volume create --name vol1
 Show information about container or images by id
 ```bash
 $ docker inspect ( $ContainerID / $ImageID )
+```
+
+### Docker File :
+```bash
+# Build DockerFile To Image
+$ docker build -t MyImageName .
+```
+
+### Create Local Registry :
+```bash
+# download registry image from dockerhub
+$ docker pull registry
+# create registry container
+$ docker run -dlt -p 5000:5000 -name registry registry
+```
+```
+Edit file : /usr/lib/systemd/system/docker.service
+
+ExecStart=/usr/bin/dockerd
+
+To:
+
+ExecStart=/usr/bin/dockerd --insecure-registry $RegistryContainerIP:5000
+```
+
+```bash
+# reload Services
+$ systemctl daemon-reload
+$ systemctl restart docker
+# upload image to remote registry
+$ docker tag centos $RegistryContainerIP:5000/myimage
+$ docker pull $RegistryContainerIP:5000/myimage
 ```
