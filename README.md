@@ -179,10 +179,12 @@ ExecStart=/usr/bin/dockerd --insecure-registry $RegistryContainerIP:5000
 ```
 
 ```bash
-# reload Services
+# Reload services
 $ systemctl daemon-reload
 $ systemctl restart docker
-# upload image to remote registry
+# Upload image to remote registry
 $ docker tag centos $RegistryContainerIP:5000/myimage
 $ docker pull $RegistryContainerIP:5000/myimage
+# Optional : add web interface to registry
+$ docker run -it -p 8080:8080 --name registry-web --link $RegistryConrainerName -e REGISTRY_URL=http://registry-srv:5000/v2 -e REGISTRY_NAME=localhost:5000 hyper/docker-registry-web
 ```
