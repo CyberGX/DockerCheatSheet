@@ -161,10 +161,11 @@ $ docker inspect ( $ContainerID / $ImageID )
 $ docker build -t MyImageName .
 ```
 
-### Create Local Registry :
+## Create Local Registry :
 ```bash
 # download registry image from dockerhub
 $ docker pull registry
+
 # create registry container
 $ docker run -dlt -p 5000:5000 -name registry registry
 ```
@@ -182,9 +183,11 @@ ExecStart=/usr/bin/dockerd --insecure-registry $RegistryContainerIP:5000
 # Reload services
 $ systemctl daemon-reload
 $ systemctl restart docker
+
 # Upload image to remote registry
 $ docker tag centos $RegistryContainerIP:5000/myimage
 $ docker pull $RegistryContainerIP:5000/myimage
+
 # Optional : add web interface to registry
 $ docker run -it -p 8080:8080 --name registry-web --link $RegistryConrainerName -e REGISTRY_URL=http://registry-srv:5000/v2 -e REGISTRY_NAME=localhost:5000 hyper/docker-registry-web
 ```
