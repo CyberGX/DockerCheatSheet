@@ -161,7 +161,7 @@ $ docker inspect ( $ContainerID / $ImageID )
 $ docker build -t MyImageName .
 ```
 
-## Create Local Registry :
+# Create Local Registry :
 ```bash
 # download registry image from dockerhub
 $ docker pull registry
@@ -203,4 +203,28 @@ $ yum install docker-compose
 
 # Check installation
 $ docker-compose --version
+
+# Show compose containers status
+$ docker-compose ps
+
+# Start compose containers
+$ docker-compose up -d
+
+# Stop compose containers
+$ docker-compose stop
+
+# Force-Kill compose containers
+$ docker-compose kill
+```
+
+## Create docker compose file
+```bin
+$ nano /usr/local/bin/docker-compose.yml
+```
+```
+my-test:
+  image: nginx:latest
+```
+```bash
+$ docker-compose up -d
 ```
