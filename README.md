@@ -204,17 +204,23 @@ $ yum install docker-compose
 # Check installation
 $ docker-compose --version
 
-# Show compose containers status
+# Show composed containers status
 $ docker-compose ps
 
-# Start compose containers
+# Start composed containers
 $ docker-compose up -d
 
-# Stop compose containers
+# Stop composed containers
 $ docker-compose stop
 
-# Force-Kill compose containers
+# Force-Kill composed containers
 $ docker-compose kill
+
+# Remove composed containers
+$ docker-compose rm
+
+# Stop composed container & remove
+$ docker-compose down
 ```
 
 ## Create docker compose file
@@ -228,3 +234,5 @@ my-test:
 ```bash
 $ docker-compose up -d
 ```
+
+for more information [click here](https://docs.docker.com/compose/gettingstarted/#step-3-define-services-in-a-compose-file).
