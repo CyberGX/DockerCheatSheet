@@ -191,3 +191,16 @@ $ docker pull $RegistryContainerIP:5000/myimage
 # Optional : add web interface to registry
 $ docker run -it -p 8080:8080 --name registry-web --link $RegistryConrainerName -e REGISTRY_URL=http://registry-srv:5000/v2 -e REGISTRY_NAME=localhost:5000 hyper/docker-registry-web
 ```
+
+# Docker Compose
+Docker compose is official plugin for docker to deploy mulptile container by one yml file.
+```bash
+# Install Docker Compose
+$ yum install epel-release
+$ yum install python-pip
+$ yum upgrade python*
+$ yum install docker-compose
+
+# Check installation
+$ docker-compose --version
+```
