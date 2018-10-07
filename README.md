@@ -221,6 +221,9 @@ $ docker-compose rm
 
 # Stop composed container & remove
 $ docker-compose down
+
+# Check compose file before start
+$ docker-compose config
 ```
 
 ## Create docker compose file
@@ -236,3 +239,15 @@ $ docker-compose up -d
 ```
 
 for more information [click here](https://docs.docker.com/compose/gettingstarted/#step-3-define-services-in-a-compose-file).
+
+# Docker Cluster Swarm
+```bash
+# Node 1 - Leader ( IP : 192.168.1.1 )
+$ docker swarm init --advertise-addr 192.168.1.1
+# To join workers run this command ( Token get from top command )
+$ docker swarm join --token $TOKEN $MasterIP:2377
+# Get Nodes from leader
+$ docker node ls
+# To prevend single point of failure promote all nodes
+# now if leader going down other nodes can be leader
+$ docker node promote $NodeName
